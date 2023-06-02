@@ -16,14 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 require('./dbs/init.mongodb')
 
 // // init routes
-// app.use('/', require('path/to/routes'))
-
-app.use('/', (req, res, next) => {
-  res.status(200).json({
-    status: 200,
-    message: 'OKAY'
-  })
-})
+app.use('/api/v1', require('./routes'))
 
 // handle 404 error
 app.use((req, res, next) => {
@@ -43,18 +36,3 @@ app.use((error, req, res, next) => {
 })
 
 module.exports = app
-
-// khởi tạo cấu trúc thư mục chuẩn clean
-/* file app: 
-    - init middleware thirty party (compression morgan, helmet, express, cors ...)
-    - init db
-    - init routes
-    - handle error 404
-    - handle throw error
-*/
-
-/* file server
-    - import app
-    - listen port
-    - process.on('SIGINT') => exit server
-*/
