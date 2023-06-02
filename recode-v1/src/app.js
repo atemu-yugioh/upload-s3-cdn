@@ -12,8 +12,8 @@ app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// // init database
-// app.use(require('path/to/db'))
+// init database
+require('./dbs/init.mongodb')
 
 // // init routes
 // app.use('/', require('path/to/routes'))
