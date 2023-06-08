@@ -24,6 +24,18 @@ class FileController {
       throw new Error('get list file fail')
     }
   }
+
+  delete = async (req, res, next) => {
+    try {
+      return res.status(200).json({
+        status: 200,
+        message: 'delete file success',
+        data: await FileService.delete(req.params.id)
+      })
+    } catch (error) {
+      throw new Error('delete file fail')
+    }
+  }
 }
 
 module.exports = new FileController()

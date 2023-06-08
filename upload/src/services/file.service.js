@@ -1,4 +1,5 @@
 const fileModel = require('../models/file.model')
+const { convertToObjectIdMongodb } = require('../utils')
 
 class FileService {
   static create = async ({ title = '', pathname = '' }) => {
@@ -10,7 +11,7 @@ class FileService {
   }
 
   static delete = async (id) => {
-    return await fileModel.deleteOne({ id })
+    return await fileModel.deleteOne({ _id: convertToObjectIdMongodb(id) })
   }
 }
 
