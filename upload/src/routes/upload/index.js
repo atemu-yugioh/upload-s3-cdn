@@ -1,4 +1,5 @@
 const express = require('express')
+const fileController = require('../../controllers/file.controller')
 const router = express.Router()
 
 router.get('', (req, res, next) => {
@@ -9,13 +10,7 @@ router.get('', (req, res, next) => {
   })
 })
 
-router.post('', (req, res, next) => {
-  return res.status(200).json({
-    status: 200,
-    message: 'upload link success',
-    data: null
-  })
-})
+router.post('', fileController.upload)
 
 router.delete('', (req, res, next) => {
   return res.status(200).json({
