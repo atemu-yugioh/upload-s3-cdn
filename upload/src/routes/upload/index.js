@@ -2,13 +2,7 @@ const express = require('express')
 const fileController = require('../../controllers/file.controller')
 const router = express.Router()
 
-router.get('', (req, res, next) => {
-  return res.status(200).json({
-    status: 200,
-    message: 'get link success',
-    data: null
-  })
-})
+router.get('', fileController.getAll)
 
 router.post('', fileController.upload)
 
